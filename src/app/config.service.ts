@@ -6,7 +6,7 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'https://localhost:44324/weatherforecast';
+  url = 'http://localhost:5000/weatherforecast';
   getWeatherForecast(searchTerm : string) {
     console.log(searchTerm);
     return this
