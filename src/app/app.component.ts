@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'SPA';
   response : any = [];
   weatherPeriod : any = [];
+  responseFlag : boolean = false;
   constructor(private configService: ConfigService, private SpinnerService: NgxSpinnerService){
 
   }
@@ -19,11 +20,16 @@ export class AppComponent {
   
   txtSearch : string = "";
   getWearherSrvices() {
-    this.SpinnerService.show(); 
-    this.configService.getWeatherForecast(this.txtSearch).subscribe((data : any)=>{
-      this.weatherPeriod = data;
-      this.SpinnerService.hide(); 
-    });
+    debugger
+    if(this.txtSearch != "")
+    {
+      this.SpinnerService.show(); 
+      this.configService.getWeatherForecast(this.txtSearch).subscribe((data : any)=>{
+        this.weatherPeriod = data;
+        this.SpinnerService.hide(); 
+        this.responseFlag = true;
+      });
+    }
   }
   
 }

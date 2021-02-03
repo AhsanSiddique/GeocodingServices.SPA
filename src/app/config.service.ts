@@ -7,6 +7,7 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   url = 'https://weatherforecast-api.azurewebsites.net/WeatherForecast';
+   //url = 'http://localhost:5002/weatherforecast';
   getWeatherForecast(searchTerm : string) {
     console.log(searchTerm);
     return this
